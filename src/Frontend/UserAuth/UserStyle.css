@@ -1,0 +1,52 @@
+.nameandlogolandingpage {
+    border: 1px solid black;
+    display: flex;
+}
+
+.nameandlogolandingpage .name {
+    border: 1px solid black;
+    width: 50%;
+}
+
+.nameandlogolandingpage img {
+    border: 1px solid black;
+    width: 50%;
+}
+
+.nameandlogosignup {
+    border: 1px solid black;
+    display: flex;
+}
+
+.nameandlogosignup .logoandtagline {
+    border: 1px solid black;
+    width: 50%;
+}
+
+.nameandlogosignup .logoandtagline img{
+    width: 50%;
+} 
+
+.nameandlogosignup .name {
+    border: 1px solid black;
+    width: 50%;
+}
+
+.nameandlogologin {
+    border: 1px solid black;
+    display: flex;
+}
+
+.nameandlogologin .logoandtagline {
+    border: 1px solid black;
+    width: 50%;
+}
+
+.nameandlogologin .logoandtagline img{
+    width: 50%;
+} 
+
+.nameandlogologin .name {
+    border: 1px solid black;
+    width: 50%;
+}

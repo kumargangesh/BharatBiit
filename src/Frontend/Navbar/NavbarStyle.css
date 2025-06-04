@@ -1,0 +1,14 @@
+nav{
+    border: 2px solid black;
+}
+
+nav img{
+    height: 70px;
+    width: 130px;
+    margin: 0px;
+    border: 1px solid black;
+}
+
+nav span{
+    font-size: 30px;
+}
