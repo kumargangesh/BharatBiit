@@ -12,7 +12,7 @@ import Signup from './UserAuth/Signup';
 export default function Routing() {
   return (
     <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />

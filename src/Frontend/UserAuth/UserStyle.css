@@ -1,38 +1,202 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .nameandlogolandingpage {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
+    margin-top: 7%;
 }
 
 .nameandlogolandingpage .name {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 50%;
 }
 
+.nameandlogolandingpage .name h1{
+    font-size: 70px;
+    font-weight: bolder;
+    margin-top: 15%;
+    margin-left: 10%;
+}
+
+.nameandlogolandingpage .name p{
+    font-size: 22px;
+    font-weight: bolder;
+    margin-left: 10%;
+    margin-top: -5%;
+}
+
+.nameandlogolandingpage .name .buttons{
+    /* border:  1px solid black; */
+    width: 70%;
+    padding: 2%;
+    margin: 5% 7%;
+}
+
+.nameandlogolandingpage .name .buttons button{
+    width: 40%;
+    height: 50px;
+    margin-left: 1.5%;
+    font-weight: bolder;
+}
+
 .nameandlogolandingpage img {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 50%;
 }
 
 .nameandlogosignup {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
+    margin-top: 7%;
 }
 
 .nameandlogosignup .logoandtagline {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 50%;
 }
 
 .nameandlogosignup .logoandtagline img{
-    width: 50%;
+    width: 90%;
+    /* border: 1px solid black; */
+    margin-top: 1%;
+    margin-left: 5%;
 } 
 
+.nameandlogosignup .logoandtagline h1{
+    font-size: 55px;
+    font-weight: bolder;
+    margin-left: 30%;
+    margin-top: .1%;
+}
+
+.nameandlogosignup .logoandtagline p{
+    font-weight: bolder;
+    font-size: 18px;
+    margin-left: 30%;
+    margin-top: -4%;
+}
+
 .nameandlogosignup .name {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 50%;
 }
 
+.nameandlogosignup .name h1{
+    font-size: 50px;
+    font-weight: bolder;
+    margin-left: 5%;
+}
+
+.nameandlogosignup .signup{
+    border: 1px solid black;
+    width: 50%;
+    height: fit-content;
+    padding: 2%;
+    margin: 2% 5%;
+}
+
+.nameandlogosignup .signup input{
+    width: 80%;
+    height: 50px;
+    padding: 1% 3%;
+    font-weight: bolder;
+    border-radius: 5px;
+    margin: 2%;
+}
+
+.nameandlogosignup .name button{
+    width: 25%;
+    height: 50px;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.nameandlogosignup .name p{
+    font-size: 14px;
+    font-weight: bolder;
+    margin-left: 5%;
+    margin-top: 3%;
+}
+
 .nameandlogologin {
+    /* border: 1px solid black; */
+    display: flex;
+    margin-top: 7%;
+}
+
+.nameandlogologin .logoandtagline {
+    /* border: 1px solid black; */
+    width: 50%;
+}
+
+.nameandlogologin .logoandtagline img{
+    width: 90%;
+    /* border: 1px solid black; */
+    margin-top: .1%;
+    margin-left: 5%;
+} 
+
+.nameandlogologin .logoandtagline h1{
+    font-size: 55px;
+    font-weight: bolder;
+    margin-left: 30%;
+    margin-top: .1%;
+}
+
+.nameandlogologin .logoandtagline p{
+    font-weight: bolder;
+    font-size: 18px;
+    margin-left: 30%;
+    margin-top: -4%;
+}
+
+.nameandlogologin .name {
+    /* border: 1px solid black; */
+    width: 50%;
+}
+
+.nameandlogologin .name h1{
+    font-size: 50px;
+    font-weight: bolder;
+    margin-left: 28%;
+    margin-top: 10%;
+}
+
+.nameandlogologin .signup{
+    /* border: 1px solid black; */
+    width: 50%;
+    height: fit-content;
+    padding: 2%;
+    margin: 2% 25%;
+}
+
+.nameandlogologin .signup input{
+    width: 80%;
+    height: 50px;
+    padding: 1% 3%;
+    font-weight: bolder;
+    border-radius: 5px;
+    margin: 2%;
+}
+
+.nameandlogologin .name button{
+    width: 25%;
+    height: 50px;
+    margin-left: 28%;
+    margin-top: 2%;
+}
+
+.nameandlogologin .name p{
+    font-size: 14px;
+    font-weight: bolder;
+    margin-left: 28%;
+    margin-top: 3%;
+}
+
+
+/* .nameandlogologin {
     border: 1px solid black;
     display: flex;
 }
@@ -49,4 +213,4 @@
 .nameandlogologin .name {
     border: 1px solid black;
     width: 50%;
-}
+} */
