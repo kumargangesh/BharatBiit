@@ -1,6 +1,5 @@
 import React from 'react';
 import "./UserStyle.css";
-import Navbar from "../Navbar/Navbar";
 import BBIcon from "../Navbar/bharatbitIcon.png";
 import { Link } from "react-router-dom";
 

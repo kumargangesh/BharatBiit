@@ -1,14 +1,54 @@
-nav{
-    border: 2px solid black;
-}
-
-nav img{
-    height: 70px;
-    width: 130px;
+*{
     margin: 0px;
-    border: 1px solid black;
+    padding: 0px;
 }
 
-nav span{
+body{
+    background-color: rgb(12, 25, 37);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.navBar{
+    border: 1px solid white;
+    display: flex;
+}
+
+.navBar h1{
+    font-size: 50px;
+    color: greenyellow;
+    font-weight: bolder;
+    margin-left: 2%;
+    margin-top: .5%;
+}
+
+.navBar .tabs{
+    /* border: 1px solid white; */
+    margin-left: 5%;
+    height: fit-content;
+    width: 60%;
+    padding-top: .2%;
+    /* padding: .2% 1%; */
+}
+
+.navBar .tabs button{
+    height: 70px;
+    width: 20%;
+    margin-left: 2%;
+    font-weight: bolder;
+    background-color: rgb(12, 25, 37);
+    color: greenyellow;
+    border: 1px solid greenyellow;
+    border-radius: 5px;
+}
+
+.navBar .user{
+    height: 60px;
+    width: 60px;
+    border-radius: 500px;
     font-size: 30px;
+    background-color: rgb(12, 25, 37);
+    color: greenyellow;
+    border: 1px solid greenyellow;
+    margin-left: 3%;
+    margin-top: .5%;
 }
