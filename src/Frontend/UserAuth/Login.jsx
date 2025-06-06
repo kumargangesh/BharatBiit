@@ -7,8 +7,8 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("12345");
+  const [password, setPassword] = useState("12345");
   const [message, changeMessage] = useState("");
 
   const handleEmail = (event) => {
@@ -27,7 +27,6 @@ export default function Login() {
     } else if (password === "") {
       changeMessage("enter password");
     } else {
-      alert("all clear");
       navigate("/navbar/cryptos");
     }
   }

@@ -1,3 +1,122 @@
 h1{
     color: white;
 }
+
+.cryptos, .portfolio, .wallet{
+    /* border: 1px solid white; */
+    width: 99%;
+    height: fit-content;
+    margin: auto;
+    padding: 2%;
+    color: white;
+    font-weight: bolder;
+}
+
+.indiCrypto, .ownedCrypto, .walletCrypto{
+    border: 1px solid white;
+    width: 98%;
+    height: fit-content;
+    padding: 2%;  
+    border-radius: 5px; 
+    margin-top: 6%;
+    transition: .5s;
+    color: white;
+}
+
+.indiCrypto:hover, .ownedCrypto:hover, .walletCrypto:hover{
+    border-radius: 15px;
+}
+
+.indiCrypto .rankandsymbol{
+    /* border: 1px solid white; */
+}
+
+.indiCrypto .rankandsymbol p, .ownedCrypto .rankandsymbol p, .walletCrypto .rankandsymbol p{
+    font-size: 25px;
+    margin-bottom: 0%;
+}
+
+.indiCrypto .nameandicon, .ownedCrypto .nameandicon{
+     /* border: 1px solid white; */
+     width: 105%;
+}
+
+.indiCrypto .nameandicon h3, .ownedCrypto .nameandicon h3, .walletCrypto .nameandicon h3{
+    font-size: 45px;
+    color: yellowgreen;
+}
+
+.indiCrypto .nameandicon img, .ownedCrypto .nameandicon img, .walletCrypto .nameandicon img{
+    width: 100px;
+    height: 50px;
+    margin-top: .8%;
+    /* border: 1px solid white; */
+}
+
+.indiCrypto button{
+    width: 40%;
+    height: 60px;
+    margin: 2% 30%;
+    background-color: rgb(12, 25, 37);
+    color: yellowgreen;
+    border: 1px solid yellowgreen;
+    border-radius: 5px;
+    transition: .5s;
+}
+
+.indiCrypto button:hover{
+    border-radius: 15px;
+}
+
+.indiCrypto .prices .price p, .open p, .close p, .high p{
+    font-size: 18px;
+    margin-bottom: 0%;
+}
+
+.ownedCrypto .amount .price p, .open p, .close p, .high p{
+    font-size: 18px;
+    margin-bottom: 0%;
+}
+
+.walletCrypto .amount .price p, .open p, .close p, .high p{
+    font-size: 18px;
+    margin-bottom: 0%;
+}
+
+.ownedCrypto .buttons{
+    /* border: 1px solid white; */
+    width: 98%;
+    margin: 2% auto;
+    padding: 1%;
+}
+
+.ownedCrypto .buttons button{
+    width: 30%;
+    height: 60px;
+    background-color: rgb(12, 25, 37);
+    color: yellowgreen;
+    border: 1px solid yellowgreen;
+    border-radius: 5px;
+    font-weight: bolder;
+    transition: .5s;
+}
+
+.ownedCrypto .buttons button:hover{
+    border-radius: 15px;
+}
+
+.walletCrypto .redeem{
+    width: 40%;
+    height: 60px;
+    background-color: rgb(12, 25, 37);
+    color: yellowgreen;
+    border: 1px solid yellowgreen;
+    border-radius: 5px;
+    font-weight: bolder;
+    margin: 2% 30%;
+    transition: 0.5s;
+}
+
+.walletCrypto button:hover{
+    border-radius: 15px;
+}

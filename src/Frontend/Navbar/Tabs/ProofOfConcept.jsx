@@ -3,8 +3,8 @@ import "./TabsDesign.css";
 
 export default function ProofOfConcept() {
   return (
-    <div>
-        <center><h1>ProofOfConcept</h1></center>
+    <div className="cryptos">
+      <center><h1>this is the POC.jsx</h1></center>
     </div>
   )
 }
