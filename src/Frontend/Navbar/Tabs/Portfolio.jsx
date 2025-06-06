@@ -12,7 +12,7 @@ export default function Portfolio(props) {
             props.ownedCrypto.map((crypto) => {
               return(
                 <div className="col-md-4">
-                  <IndividualOwnedCrypto ownedCrypto = {crypto} />
+                  <IndividualOwnedCrypto ownedCrypto = {crypto} setCryptoData = {props.setCryptoData} />
                 </div>
               )
             })

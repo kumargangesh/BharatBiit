@@ -1,8 +1,11 @@
 import React from 'react';
 import "./buysell.css";
 
-export default function CryptoToWallet() {
+export default function CryptoToWallet(props) {
   return (
-    <div>CryptoToWallet</div>
+    <div className="cryptoWallet">
+      <h1>crypto wallet</h1>
+      <h3>{props.cryptoData.name}</h3>
+    </div>
   )
 }

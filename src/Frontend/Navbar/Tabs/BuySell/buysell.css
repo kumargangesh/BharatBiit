@@ -1,0 +1,37 @@
+.cryptoBuy{
+    color: white;
+}
+
+.cryptoBuy{
+    border: 1px solid white;
+    width: 98%;
+    height: fit-content;
+    padding: 2%;
+    margin: 2% auto;
+    display: flex;
+}
+
+.cryptoBuy .cryptoInfo{
+    border: 1px solid white;
+    width: 40%;
+    padding: 2%;
+    padding-top: 0%;
+}
+
+.cryptoBuy .buysell{
+    border: 1px solid white;
+    width: 50%;
+    margin-left: 5%;
+    padding: 2%;
+}
+
+.cryptoBuy .buysell .cryptoForm{
+    border: 1px solid white;
+    padding: 2%;
+}
+
+.cryptoBuy .buysell h3{
+    font-size: 40px;
+    color: yellowgreen;
+}
+

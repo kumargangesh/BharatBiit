@@ -1,54 +1,29 @@
 import React, { useState } from 'react';
 import "./TabsDesign.css";
-import CryptoFees from './Fees/CryptoFees';
+import CryptoBuy from './BuySell/CryptoBuy';
+import CryptoSell from './BuySell/CryptoSell';
+import CryptoToWallet from './BuySell/CryptoToWallet';
+import {useNavigate} from "react-router-dom";
+
 
 export default function IndividualOwnedCrypto(props) {
 
-    const [buy, changeBuy] = useState(0);
-    const [sell, changeSell] = useState(0);
-    const [toWallet, changeToWallet] = useState(0);
+    const navigate = useNavigate();
 
-    const cryptoBuy = () => {
-
+    const cryptoBuy =() => {
+        props.setCryptoData(props.ownedCrypto);
+        navigate("/navbar/buycrypto");
     }
 
-    const cryptoSell = () => {
-        
+    const cryptoSell =() => {
+        props.setCryptoData(props.ownedCrypto);
+        navigate("/navbar/sellcrypto");
     }
 
-    const cryptoToWallet = () => {
-        
+    const cryptoWallet =() => {
+        props.setCryptoData(props.ownedCrypto);
+        navigate("/navbar/walletcrypto");
     }
-
-    // const buyFees = () => {
-    //     if(feesShow === 0){
-    //         changeFeesShow(1);
-    //         setFeesMessage("Buy Fees");
-    //     }else{
-    //         changeFeesShow(0);
-    //         setFeesMessage("");
-    //     }
-    // }
-
-    // const sellFees = () => {
-    //     if(feesShow === 0){
-    //         changeFeesShow(1);
-    //         setFeesMessage("Sell Fees");
-    //     }else{
-    //         changeFeesShow(0);
-    //         setFeesMessage("");
-    //     }
-    // }
-
-    // const addToWallet = () => {
-    //     if(feesShow === 0){
-    //         changeFeesShow(1);
-    //         setFeesMessage("Crypto Wallet");
-    //     }else{
-    //         changeFeesShow(0);
-    //         setFeesMessage("");
-    //     }
-    // }
 
     return (
         <div className="container ownedCrypto">
@@ -64,8 +39,18 @@ export default function IndividualOwnedCrypto(props) {
 
             <div className="amount">
                 <div className="price d-flex justify-content-between">
+                    <p>Current Price: </p>
+                    <p>{props.ownedCrypto.currentPrice}</p>
+                </div>
+
+                <div className="price d-flex justify-content-between">
                     <p>Buying Price: </p>
-                    <p>{props.ownedCrypto.price}</p>
+                    <p>{props.ownedCrypto.buyingPrice}</p>
+                </div>
+
+                <div className="open d-flex justify-content-between">
+                    <p>Quantity: </p>
+                    <p>{props.ownedCrypto.quantity}</p>
                 </div>
 
                 <div className="open d-flex justify-content-between">
@@ -86,17 +71,8 @@ export default function IndividualOwnedCrypto(props) {
                 <div className="buttons d-flex justify-content-between">
                     <button className="buyNow" onClick={cryptoBuy}>Buy Now</button>
                     <button className="sellNow" onClick={cryptoSell}>Sell Now</button>
-                    <button className="addtowallet" onClick={cryptoToWallet}>Add To Wallet</button>
+                    <button className="addtowallet" onClick={cryptoWallet}>Add To Wallet</button>
                 </div>
-
-                {
-                    feesShow === 1 ?
-                        <CryptoFees
-                            feesMessage={feesMessage}
-                        />
-                        :
-                        <></>
-                }
             </div>
         </div>
     )

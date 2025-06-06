@@ -1,8 +1,11 @@
 import React from 'react';
 import "./buysell.css";
 
-export default function CryptoSell() {
+export default function CryptoSell(props) {
   return (
-    <div>CryptoSell</div>
+    <div className="cryptoSell">
+      <h1>cryptosell</h1>
+      <h3>{props.cryptoData.name}</h3>
+    </div>
   )
 }
