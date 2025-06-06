@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./buysell.css";
 import "../TabsDesign.css";
 
 export default function CryptoBuy(props) {
+
+  const [quantity, setQuantity] = useState("");
+
+  const handleQuantity =(event) => {
+    setQuantity(event.target.value);
+  }
+
+  const buyCrypto =() => {
+    alert(quantity);
+  }
+
   return (
     <div className="cryptoBuy">
       <div className="cryptoInfo">
@@ -52,14 +63,14 @@ export default function CryptoBuy(props) {
         </div>
       </div>
       <div className="buysell">
-        <h3>Buy {props.cryptoData.name}</h3>
+        <h3>Buy Crypto</h3>
 
         <div className="price d-flex justify-content-between">
           <p>Current Price: </p>
           <p>{props.cryptoData.currentPrice}</p>
         </div>
         <div className="cryptoForm">
-          <input type="number" placeholder={"quantity of "+props.cryptoData.name + " to buy"} />
+          <input type="number" placeholder={"quantity to buy"} value={quantity} onChange={handleQuantity} />
           <div className="feesForm">
             <div className="d-flex justify-content-between">
               <p>Amount Before Fees</p>
@@ -80,9 +91,9 @@ export default function CryptoBuy(props) {
               <p>Net Payable Amount</p>
               <p>100236</p>
             </div>
-
-            <button>Buy {props.cryptoData.name}</button>
           </div>
+
+          <button className="buybutton" onClick={buyCrypto}>Buy</button>
         </div>
       </div>
     </div>

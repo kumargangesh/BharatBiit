@@ -1,7 +1,16 @@
 import React from 'react';
 import "./TabsDesign.css";
+import {useNavigate} from "react-router-dom";
 
 export default function IndividualCrypto(props) {
+
+  const navigate = useNavigate();
+
+  const buyCrypto =() => {
+    props.setCryptoData(props.cryptoData);
+    navigate("/navbar/buycrypto");
+  }
+
   return (
     <div className="indiCrypto container">
       <div className="rankandsymbol d-flex justify-content-between">
@@ -15,7 +24,7 @@ export default function IndividualCrypto(props) {
       <div className="prices">
         <div className="price d-flex justify-content-between">
           <p>Price : </p>
-          <p>{props.cryptoData.price}</p>
+          <p>{props.cryptoData.currentPrice}</p>
         </div>
 
         <div className="open d-flex justify-content-between">
@@ -34,7 +43,7 @@ export default function IndividualCrypto(props) {
         </div>
       </div>
 
-      <button>Buy Now</button>
+      <button onClick={buyCrypto}>Buy Now</button>
 
     </div>
   )

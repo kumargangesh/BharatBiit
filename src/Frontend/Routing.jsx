@@ -16,47 +16,72 @@ import ProofOfConcept from "./Navbar/Tabs/ProofOfConcept";
 import CryptoBuy from './Navbar/Tabs/BuySell/CryptoBuy';
 import CryptoSell from './Navbar/Tabs/BuySell/CryptoSell';
 import CryptoToWallet from './Navbar/Tabs/BuySell/CryptoToWallet';
+import RedeemCrypto from "./Navbar/Tabs/BuySell/RedeemCrypto";
+import NavbarDesign from './Navbar/NavbarDesign';
+import UserProfile from './Navbar/UserProfile';
 
 export default function Routing() {
 
   const [cryptoData, setCryptoData] = useState({});
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const crypto = [
     {
       "name": "Bitcoin",
       "symbol": "BTC",
       "rank": 1,
-      "price": 950000,
       "open": 9400000,
       "close": 9600000,
-      "high": 9450000
+      "high": 9450000,
+      "currentPrice" : 900000,
+      "buyingPrice": 950000,
+      "investedAmount": 20000,
+      "quantity": "10",
+      "currentValue": 25000,
+      "PL": 5
     },
     {
       "name": "Ethereum",
       "symbol": "ETM",
       "rank": 2,
-      "price": 230000,
       "open": 220000,
       "close": 240000,
-      "high": 2350000
+      "high": 2350000,
+      "currentPrice" : 200000,
+      "buyingPrice": 230000,
+      "investedAmount": 25000,
+      "quantity": "123",
+      "currentValue": 20000,
+      "PL": 5
     },
     {
       "name": "Degen",
       "symbol": "DEGEN",
       "rank": 123,
-      "price": 0.38,
       "open": 0.37,
       "close": 0.39,
-      "high": 0.4
+      "high": 0.4,
+      "currentPrice" : 0.4,
+      "buyingPrice": 0.38,
+      "investedAmount": 100000,
+      "quantity": "1345",
+      "currentValue": 150000,
+      "PL": 50
     },
     {
       "name": "JasmyCoin",
       "symbol": "JSM",
       "rank": 120,
-      "price": 1.5,
       "open": 1.45,
       "close": 1.56,
-      "high": 1.6
+      "high": 1.6,
+      "currentPrice" : 1.38,
+      "buyingPrice": 1.5,
+      "investedAmount": 90000,
+      "quantity": "1567",
+      "currentValue": 45000,
+      "PL": 50
     }
   ];
 
@@ -112,17 +137,21 @@ export default function Routing() {
       "name": "Bitcoin",
       "symbol": "BTC",
       "rank": 1,
-      "price": 950000,
+      "currentPrice" : 900000,
+      "buyingPrice": 950000,
       "investedAmount": 20000,
+      "quantity": "10",
       "currentValue": 25000,
       "PL": 5
     },
     {
       "name": "JasmyCoin",
       "symbol": "JSM",
-      "rank": 120,
-      "price": 1.5,
+      "rank" : 120,
+      "currentPrice" : 1.38,
+      "buyingPrice": 1.5,
       "investedAmount": 90000,
+      "quantity": "1567",
       "currentValue": 45000,
       "PL": 50
     }
@@ -132,48 +161,19 @@ export default function Routing() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/navbar" element={<NavbarLinks />} >
-          <Route path="cryptos" element={<Cryptos cryptos={crypto} />} />
+        <Route path="/login" element={<Login setEmail = {setEmail} setPassword = {setPassword} />} />
+        <Route path="/signup" element={<Signup setEmail = {setEmail} setPassword = {setPassword} />} />
+        <Route path="/userprofile" element={<UserProfile user = {{email, password}}/>} />
+        <Route path="/navbar" element={<NavbarDesign />} >
+          <Route path="cryptos" element={<Cryptos cryptos={crypto} setCryptoData={setCryptoData} />} />
           <Route path="portfolio" element={<Portfolio ownedCrypto={ownedCrypto} setCryptoData={setCryptoData} />} />
-          <Route path="cryptowallet" element={<CryptoWallet walletCrypto={walletCrypto} />} />
+          <Route path="cryptowallet" element={<CryptoWallet walletCrypto={walletCrypto} setCryptoData={setCryptoData} />} />
           <Route path="poc" element={<ProofOfConcept />} />
           <Route path="buycrypto" element={<CryptoBuy cryptoData={cryptoData} />} />
           <Route path="sellcrypto" element={<CryptoSell cryptoData={cryptoData} />} />
-          <Route path="walletcrypto" element={<CryptoToWallet cryptoData={cryptoData} />} />
+          <Route path="walletcryptoadd" element={<CryptoToWallet cryptoData={cryptoData} />} />
+          <Route path="walletcryptoredeem" element={<RedeemCrypto cryptoData={cryptoData} />} />
         </Route>
-
-        {/* <Route element={<NavbarLinks />} path="/navbar" >
-
-          <Route element={<Home
-          // tabName="About Me"
-          // tabData={"this is the About Me "+"\n"+data}
-          />} path="home" />
-
-          <Route element={<About
-          // tabName="Contact Me"
-          // tabData={"this is the Contact Me "+"\n"+data}
-          />} path="about" />
-
-          <Route element={<Cryptos
-            email={email}
-          // tabName="Education"
-          // tabData={"this is the Education "+"\n"+data}
-          />} path="cryptos" />
-
-          <Route element={<Portfolio
-            email={email}
-          // tabName="Projects"
-          // tabData={"this is the Projects "+"\n"+data}
-          />} path="portfolio" />
-
-          <Route element={<Wallet
-          // tabName="Skills"
-          // tabData={"this is the Skills "+"\n"+data}
-          />} path="wallet" />
-
-        </Route> */}
       </Routes>
     </Router>
   )

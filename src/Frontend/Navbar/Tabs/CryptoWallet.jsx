@@ -12,7 +12,7 @@ export default function CryptoWallet(props) {
             props.walletCrypto.map((crypto) => {
               return(
                 <div className="col-md-4">
-                  <IndividualWalletCrypto walletCrypto = {crypto} />
+                  <IndividualWalletCrypto walletCrypto = {crypto} setCryptoData = {props.setCryptoData} />
                 </div>
               )
             })

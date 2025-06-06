@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./buysell.css";
 import "../TabsDesign.css";
 
-export default function CryptoSell(props) {
+export default function CryptoToWallet(props) {
 
   const [quantity, setQuantity] = useState("");
 
@@ -10,14 +10,14 @@ export default function CryptoSell(props) {
     setQuantity(event.target.value);
   }
 
-  const sellCrypto =() => {
+  const buyCrypto =() => {
     alert(quantity);
   }
 
   return (
     <div className="cryptoBuy">
       <div className="cryptoInfo">
-        <div className="container ownedCrypto">
+        <div className="container ownedCrypto" >
           <div className="rankandsymbol d-flex justify-content-between">
             <p>{props.cryptoData.rank}</p>
             <p>{props.cryptoData.symbol}</p>
@@ -63,14 +63,14 @@ export default function CryptoSell(props) {
         </div>
       </div>
       <div className="buysell">
-        <h3>Sell Crypto</h3>
+        <h3>Redeem Crypto from Wallet</h3>
 
         <div className="price d-flex justify-content-between">
           <p>Current Price: </p>
           <p>{props.cryptoData.currentPrice}</p>
         </div>
         <div className="cryptoForm">
-          <input type="number" placeholder={"quantity to sell"} value={quantity} onChange={handleQuantity} />
+          <input type="number" placeholder="quantity to redeem crypto from wallet" value={quantity} onChange={handleQuantity} />
           <div className="feesForm">
             <div className="d-flex justify-content-between">
               <p>Amount Before Fees</p>
@@ -78,7 +78,7 @@ export default function CryptoSell(props) {
             </div>
 
             <div className="d-flex justify-content-between">
-              <p>Platform Fees (0.2%)</p>
+              <p>Wallet Fees (0.2%)</p>
               <p>200</p>
             </div>
 
@@ -88,20 +88,16 @@ export default function CryptoSell(props) {
             </div>
 
             <div className="d-flex justify-content-between">
-              <p>TDS (1%)</p>
-              <p>997.64</p>
-            </div>
-
-            <div className="d-flex justify-content-between">
-              <p>Net Recivable Amount</p>
-              <p>98766.36</p>
+              <p>Net Payable Amount</p>
+              <p>100236</p>
             </div>
           </div>
 
-          <button className="buybutton" onClick={sellCrypto}>Sell</button>
+          <button className="buybutton" onClick={buyCrypto} style={{
+            width : "40%"
+          }}>Redeem from Wallet</button>
         </div>
       </div>
     </div>
   )
 }
-

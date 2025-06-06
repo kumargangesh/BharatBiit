@@ -1,0 +1,61 @@
+.userprofile{
+    /* border: 1px solid white; */
+    padding: 2%;
+    width: 98%;
+    height: fit-content;
+    margin: 6% auto;
+    display: flex;
+    color: white;
+}
+
+.userprofile .usericon{
+    /* border: 1px solid white; */
+    width: 40%;
+    padding: 5%;
+}
+
+.userprofile .usericon button{
+    width: 50%;
+    height: 200px;
+    border-radius: 500%;
+    color: yellowgreen;
+    font-size: 80px;
+    font-weight: bolder;
+    background-color: rgb(12, 25, 37);
+    border: 1px solid yellowgreen;
+    margin-left: 20%;
+}
+
+.userprofile .userdetails{
+    /* border: 1px solid white; */
+    width: 50%;
+    margin-left: 5%;
+    padding: 2%;
+}
+
+.userprofile .userdetails h3{
+    color: yellowgreen;
+    font-size: 50px;
+    margin-left: 5%;
+}
+
+.userprofile .userdetails div{
+    /* border: 1px solid white; */
+    padding: 2%;
+    margin-top: 3%;
+}
+
+.userprofile .userdetails div p{
+    font-size: 25px;
+    margin-left: 3%;
+    margin-top: 1%;
+}
+
+.userprofile .userdetails div input{
+    width: 60%;
+    height: 60px;
+    background-color: rgb(12, 25, 37);
+    color: yellowgreen;
+    padding: .5% 3%;
+    border: 1px solid yellowgreen;
+}

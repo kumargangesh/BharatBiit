@@ -1,7 +1,16 @@
 import React from 'react';
 import "./TabsDesign.css";
+import { useNavigate } from 'react-router-dom';
 
 export default function IndividualWalletCrypto(props) {
+
+    const navigate = useNavigate();
+
+    const redeemCrypto =() => {
+        props.setCryptoData(props.walletCrypto);
+        navigate("/navbar/walletcryptoredeem");
+    }
+
     return (
 
         <div className="container walletCrypto">
@@ -36,7 +45,7 @@ export default function IndividualWalletCrypto(props) {
                     <p>{props.walletCrypto.PL}</p>
                 </div>
 
-                <button className="redeem">Redeem Crypto</button>
+                <button className="redeem" onClick={redeemCrypto}>Redeem Crypto</button>
             </div>
         </div>
 

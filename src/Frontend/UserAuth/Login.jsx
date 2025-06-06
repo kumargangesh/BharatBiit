@@ -3,31 +3,45 @@ import BBIcon from "../Navbar/bharatbitIcon.png";
 import "./UserStyle.css";
 import {Link, useNavigate} from "react-router-dom";
 
-export default function Login() {
+export default function Login(props) {
 
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("12345");
-  const [password, setPassword] = useState("12345");
+  const [email, setEmail] = useState("gk@mail.com");
+  const [password, setPassword] = useState("123456");
   const [message, changeMessage] = useState("");
+  const [show, setShow] = useState(0);
 
   const handleEmail = (event) => {
+    setShow(0);
+    changeMessage("");
     setEmail(event.target.value);
   }
 
   const handlePassword = (event) => {
+    setShow(0);
+    changeMessage("");
     setPassword(event.target.value);
   }
 
-  const createUser = () => {
+  const loginUser = () => {
     if (email === "" && password === "") {
-      changeMessage("enter username and password");
+      changeMessage("enter email and password");
+      setShow(1);
     } else if (email === "") {
       changeMessage("enter email");
+      setShow(1);
     } else if (password === "") {
       changeMessage("enter password");
+      setShow(1);
     } else {
-      navigate("/navbar/cryptos");
+      props.setEmail(email);
+      props.setPassword(password);
+      setShow(1);
+      changeMessage("user logged in succesfully !!");
+      setTimeout(() => {
+        navigate("/navbar/cryptos");
+      }, 3000);
     }
   }
 
@@ -41,9 +55,12 @@ export default function Login() {
           <input type="password" placeholder="password" onChange={handlePassword} value={password} />
         </div>
 
-        <p >{message}</p>
+        <p style={{
+          color : "red",
+          visibility : show === 1 ? "visible" : "initial"
+        }}>{message}</p>
 
-        <button onClick={createUser}>Login</button>
+        <button onClick={loginUser}>Login</button>
 
         <p> Create account, <Link to="/signup">Create Account</Link> </p>
 

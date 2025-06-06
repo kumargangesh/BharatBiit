@@ -22,7 +22,7 @@ export default function IndividualOwnedCrypto(props) {
 
     const cryptoWallet =() => {
         props.setCryptoData(props.ownedCrypto);
-        navigate("/navbar/walletcrypto");
+        navigate("/navbar/walletcryptoadd");
     }
 
     return (
