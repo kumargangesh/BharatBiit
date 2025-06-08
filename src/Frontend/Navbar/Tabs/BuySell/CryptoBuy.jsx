@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./buysell.css";
 import "../TabsDesign.css";
-import { deductTradableAmount, getTradableAmount } from '../../../../Backend/FirebaseMethods';
+import { buySingleCrypto, deductTradableAmount, getTradableAmount } from '../../../../Backend/FirebaseMethods';
 import TradableAmount from '../../../TradableAmount';
 
 export default function CryptoBuy(props) {
@@ -52,6 +52,8 @@ export default function CryptoBuy(props) {
         setPFees(0);
         setGST(0);
         setPayableAmount(0);
+        setMessage("");
+        buySingleCrypto(props.email);
       }, 1500);
     } else {
       setMessage("Insuffeceint amount, load more funds");

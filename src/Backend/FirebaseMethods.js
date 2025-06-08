@@ -46,7 +46,7 @@ export const registerNewUser = async (name, email, password) => {
                 name: name,
                 email: email,
                 password: password,
-                amount : 150000
+                amount: 150000
             });
 
             // const data2 = collection(database, userID);
@@ -108,8 +108,10 @@ export const getTradableAmount = async (email) => {
 export const deductTradableAmount = async (email, amountToDeduct) => {
     const tAmount = await getTradableAmount(email);
 
-    const tradableAmount = parseFloat(tAmount);
-    const remainingAmount = tradableAmount - parseFloat(amountToDeduct);
+    let tradableAmount = parseFloat(tAmount);
+    let remainingAmount = tradableAmount - parseFloat(amountToDeduct);
+    remainingAmount = parseFloat(remainingAmount);
+    remainingAmount = remainingAmount.toFixed(2);
 
     let userID;
 
@@ -120,6 +122,11 @@ export const deductTradableAmount = async (email, amountToDeduct) => {
         if (user.data().email === email) {
             userID = user.id;
         }
+    });
+
+    const updateReference = doc(database, "users", userID);
+    await updateDoc(updateReference, {
+        amount: remainingAmount
     });
 
 
@@ -157,4 +164,58 @@ export const loadAllCryptos = async () => {
 
     return allCryptos;
 
+}
+
+
+export const buySingleCrypto = async (email) => {
+    try {
+        let userID;
+
+        const data1 = collection(database, "users");
+        const userList = await getDocs(data1);
+
+        userList.docs.map(user => {
+            if (user.data().email === email) {
+                userID = user.id;
+            }
+        });
+
+        const data2 = collection(database, userID);
+
+            const cryptos = [];
+            const cryptoWallet = [];
+
+            // const cryptos = {
+            //     "name": "",
+            //     "symbol": "",
+            //     "icon": "",
+            //     "currentPrice": "",
+            //     "high": "",
+            //     "low": "",
+            //     "investedAmount": "",
+            //     "buyingPrice": ""
+            // };
+
+            // const cryptoWallet = {
+            //     "name": "",
+            //     "symbol": "",
+            //     "icon": "",
+            //     "currentPrice": "",
+            //     "high": "",
+            //     "low": "",
+            //     "investedAmount": "",
+            //     "buyingPrice": ""
+            // };
+
+            await addDoc(data2, {
+                cryptos: cryptos,
+                wallet : cryptoWallet 
+            });
+
+            alert("crypto added");
+
+
+    } catch (e) {
+        console.log(e);
+    }
 }
