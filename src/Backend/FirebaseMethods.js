@@ -46,8 +46,38 @@ export const registerNewUser = async (name, email, password) => {
                 name: name,
                 email: email,
                 password: password,
-                amount: 100000
+                amount : 150000
             });
+
+            // const data2 = collection(database, userID);
+
+            // const cryptos = {
+            //     "name": "",
+            //     "symbol": "",
+            //     "icon": "",
+            //     "currentPrice": "",
+            //     "high": "",
+            //     "low": "",
+            //     "investedAmount": "",
+            //     "buyingPrice": ""
+            // };
+
+            // const cryptoWallet = {
+            //     "name": "",
+            //     "symbol": "",
+            //     "icon": "",
+            //     "currentPrice": "",
+            //     "high": "",
+            //     "low": "",
+            //     "investedAmount": "",
+            //     "buyingPrice": ""
+            // };
+
+            // await addDoc(data2, {
+            //     cryptos: cryptos,
+            //     wallet : cryptoWallet,
+            //     tradableAmount : 150000
+            // });
 
             return "User created successfully";
         }
@@ -75,16 +105,36 @@ export const getTradableAmount = async (email) => {
     }
 }
 
-export const loadAllCryptos =async() => {
+export const deductTradableAmount = async (email, amountToDeduct) => {
+    const tAmount = await getTradableAmount(email);
+
+    const tradableAmount = parseFloat(tAmount);
+    const remainingAmount = tradableAmount - parseFloat(amountToDeduct);
+
+    let userID;
+
+    const data1 = collection(database, "users");
+    const userList = await getDocs(data1);
+
+    userList.docs.map(user => {
+        if (user.data().email === email) {
+            userID = user.id;
+        }
+    });
+
+
+}
+
+export const loadAllCryptos = async () => {
     const url =
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr";
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr";
     const options = { method: "GET", headers: { accept: "application/json" } };
 
     const cryptoData = await fetch(url, options);
     const cryptoDataJSON = await cryptoData.json();
 
     let allCryptos = [];
-    
+
     cryptoDataJSON.map((crypto) => {
         // console.log(crypto);
         let cryptoData = {};

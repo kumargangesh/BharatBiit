@@ -11,18 +11,10 @@ export default function Cryptos(props) {
   const getAllCryptos =async() => {
     const cryptos = await loadAllCryptos();
     setAllCryptos(cryptos);
-    // console.log("in useEffect : ");
-    // allCrypto.map((crypto) => {
-    //   console.log(crypto)
-    // });
   }
 
   useEffect(() => {
     getAllCryptos();
-    // console.log("in useEffect of Cryptos");
-    // allCrypto.map((crypto) => {
-    //   console.log(crypto)
-    // })
   });
 
   return (

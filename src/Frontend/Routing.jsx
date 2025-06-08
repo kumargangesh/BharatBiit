@@ -168,10 +168,10 @@ export default function Routing() {
           <Route path="portfolio" element={<Portfolio ownedCrypto={ownedCrypto} setCryptoData={setCryptoData} email = {email} />} />
           <Route path="cryptowallet" element={<CryptoWallet walletCrypto={walletCrypto} setCryptoData={setCryptoData} email = {email} />} />
           <Route path="poc" element={<ProofOfConcept />} />
-          <Route path="buycrypto" element={<CryptoBuy cryptoData={cryptoData} />} />
-          <Route path="sellcrypto" element={<CryptoSell cryptoData={cryptoData} />} />
-          <Route path="walletcryptoadd" element={<CryptoToWallet cryptoData={cryptoData} />} />
-          <Route path="walletcryptoredeem" element={<RedeemCrypto cryptoData={cryptoData} />} />
+          <Route path="buycrypto" element={<CryptoBuy cryptoData={cryptoData} email = { email } />} />
+          <Route path="sellcrypto" element={<CryptoSell cryptoData={cryptoData} email = { email } />} />
+          <Route path="walletcryptoadd" element={<CryptoToWallet cryptoData={cryptoData} email = { email } />} />
+          <Route path="walletcryptoredeem" element={<RedeemCrypto cryptoData={cryptoData} email = { email } />} />
         </Route>
       </Routes>
     </Router>

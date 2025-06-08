@@ -1,6 +1,7 @@
 import React from 'react';
 import "./TabsDesign.css";
 import IndividualOwnedCrypto from './IndividualOwnedCrypto';
+import { loadAllCryptos } from '../../../Backend/FirebaseMethods';
 import TradableAmount from '../../TradableAmount';
 
 export default function Portfolio(props) {
