@@ -38,7 +38,7 @@ h1{
 
 .indiCrypto .nameandicon, .ownedCrypto .nameandicon{
      /* border: 1px solid white; */
-     width: 105%;
+     width: 98%;
 }
 
 .indiCrypto .nameandicon h3, .ownedCrypto .nameandicon h3, .walletCrypto .nameandicon h3{
@@ -47,7 +47,7 @@ h1{
 }
 
 .indiCrypto .nameandicon img, .ownedCrypto .nameandicon img, .walletCrypto .nameandicon img{
-    width: 100px;
+    width: 50px;
     height: 50px;
     margin-top: .8%;
     /* border: 1px solid white; */

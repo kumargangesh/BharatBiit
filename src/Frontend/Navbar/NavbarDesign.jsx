@@ -2,7 +2,7 @@ import React from 'react';
 import "./NavbarStyle.css";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
-export default function NavbarDesign() {
+export default function NavbarDesign(props) {
 
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ export default function NavbarDesign() {
           <Link to="/navbar/cryptowallet"><button>Crypto Wallet</button></Link>
           <Link to="/navbar/poc"><button>Proof-of-Concept</button></Link>
         </div>
-        <button className="user" onClick={userprofile}>K</button>
+        <button className="user" onClick={userprofile}>{(((props.email).toString()).charAt(0)).toUpperCase()}</button>
       </div>
       <Outlet />
     </div>

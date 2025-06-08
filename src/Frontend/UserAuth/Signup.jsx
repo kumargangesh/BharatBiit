@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import BBIcon from "../Navbar/bharatbitIcon.png";
 import "./UserStyle.css";
 import { Link, useNavigate } from "react-router-dom";
+import { registerNewUser } from '../../Backend/FirebaseMethods';
 
 export default function Signup(props) {
 
@@ -38,7 +39,7 @@ export default function Signup(props) {
     setConfirmPassword(event.target.value);
   }
 
-  const createUser = () => {
+  const createUser = async () => {
     if (userName === "" && email === "" && password === "") {
       setShow(1);
       changeMessage("enter username and password");
@@ -57,14 +58,19 @@ export default function Signup(props) {
     } else {
       if (confirmPassword !== password) {
         changeMessage("password does't match");
-      }else{
+      } else {
         setShow(0);
-        changeMessage("User created successfully");
         props.setEmail(email);
         props.setPassword(password);
-        setTimeout(() => {
-          navigate("/navbar/cryptos");
-        }, 3000);
+
+        const userMessage = await registerNewUser(userName, email, password);
+        changeMessage(userMessage);
+
+        if (userMessage === "User created successfully") {
+          setTimeout(() => {
+            navigate("/navbar/cryptos");
+          }, 1500);
+        }
       }
     }
   }
@@ -90,8 +96,8 @@ export default function Signup(props) {
         </div>
 
         <p style={{
-          color : "red",
-          visibility : show === 1 ? "visible" : "initial"
+          color: "red",
+          visibility: show === 1 ? "visible" : "initial"
         }}>{message}</p>
 
         <button onClick={createUser}>Create Account</button>

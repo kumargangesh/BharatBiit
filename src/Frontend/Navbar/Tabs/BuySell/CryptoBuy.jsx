@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./buysell.css";
 import "../TabsDesign.css";
 
 export default function CryptoBuy(props) {
+
+  useEffect(() => {
+    console.log("in useEffect : of CryptoBuy ");
+    props.cryptoData.map((crypto) => {
+      console.log(crypto.name)
+    })
+  });
 
   const [quantity, setQuantity] = useState("");
 

@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BBIcon from "../Navbar/bharatbitIcon.png";
 import "./UserStyle.css";
-import {Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getTradableAmount, userLogin, loadAllCryptos } from '../../Backend/FirebaseMethods';
 
 export default function Login(props) {
 
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("gk@mail.com");
-  const [password, setPassword] = useState("123456");
+  const [password, setPassword] = useState("1234");
   const [message, changeMessage] = useState("");
   const [show, setShow] = useState(0);
 
@@ -24,7 +25,7 @@ export default function Login(props) {
     setPassword(event.target.value);
   }
 
-  const loginUser = () => {
+  const loginUser = async () => {
     if (email === "" && password === "") {
       changeMessage("enter email and password");
       setShow(1);
@@ -38,10 +39,20 @@ export default function Login(props) {
       props.setEmail(email);
       props.setPassword(password);
       setShow(1);
-      changeMessage("user logged in succesfully !!");
-      setTimeout(() => {
-        navigate("/navbar/cryptos");
-      }, 3000);
+
+      const userMessage = await userLogin(email, password);
+
+      changeMessage(userMessage);
+
+      // const amount = await getTradableAmount(email, password);
+
+      // alert("in loginUser : "+amount);
+
+      if (userMessage === "User found successfully") {
+        setTimeout(() => {
+          navigate("/navbar/cryptos");
+        }, 1500);
+      }
     }
   }
 
@@ -56,8 +67,8 @@ export default function Login(props) {
         </div>
 
         <p style={{
-          color : "red",
-          visibility : show === 1 ? "visible" : "initial"
+          color: "red",
+          visibility: show === 1 ? "visible" : "initial"
         }}>{message}</p>
 
         <button onClick={loginUser}>Login</button>

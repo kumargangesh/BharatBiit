@@ -1,12 +1,12 @@
 import React from 'react';
 import "./TabsDesign.css";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function IndividualCrypto(props) {
 
   const navigate = useNavigate();
 
-  const buyCrypto =() => {
+  const buyCrypto = () => {
     props.setCryptoData(props.cryptoData);
     navigate("/navbar/buycrypto");
   }
@@ -14,31 +14,37 @@ export default function IndividualCrypto(props) {
   return (
     <div className="indiCrypto container">
       <div className="rankandsymbol d-flex justify-content-between">
-        <p>{props.cryptoData.rank}</p>
+        {/* <p>{props.cryptoData.rank}</p> */}
         <p>{props.cryptoData.symbol}</p>
       </div>
       <div className="nameandicon d-flex justify-content-between">
-        <h3>{props.cryptoData.name}</h3>
-        <img src="https://i.ibb.co/N6Q0xyf9/bitcoin.png" />
+        <h3>{
+          (props.cryptoData.name).length > 8 ?
+            ((props.cryptoData.name).slice(0,8))+"..."
+          :
+            props.cryptoData.name
+        }</h3>
+        {/* <img src="https://i.ibb.co/N6Q0xyf9/bitcoin.png" /> */}
+        <img src={props.cryptoData.icon} />
       </div>
       <div className="prices">
         <div className="price d-flex justify-content-between">
-          <p>Price : </p>
+          <p>Current Price : </p>
           <p>{props.cryptoData.currentPrice}</p>
         </div>
 
-        <div className="open d-flex justify-content-between">
+        {/* <div className="open d-flex justify-content-between">
           <p>Open :</p>
           <p>{props.cryptoData.open}</p>
-        </div>
+        </div> */}
 
         <div className="close d-flex justify-content-between">
-          <p>Close :</p>
+          <p>24 Hour Low :</p>
           <p>{props.cryptoData.close}</p>
         </div>
 
         <div className="high d-flex justify-content-between">
-          <p>High :</p>
+          <p>24 Hour High :</p>
           <p>{props.cryptoData.high}</p>
         </div>
       </div>

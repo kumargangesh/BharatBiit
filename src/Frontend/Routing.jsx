@@ -8,7 +8,6 @@ import LandingPage from './UserAuth/LandingPage';
 import Login from './UserAuth/Login';
 import Signup from './UserAuth/Signup';
 import NavbarLinks from './Navbar/NavbarLinks';
-// import NavbarDesign from './Navbar/NavbarDesign';
 import Cryptos from "./Navbar/Tabs/Cryptos";
 import CryptoWallet from "./Navbar/Tabs/CryptoWallet";
 import Portfolio from "./Navbar/Tabs/Portfolio";
@@ -164,10 +163,10 @@ export default function Routing() {
         <Route path="/login" element={<Login setEmail = {setEmail} setPassword = {setPassword} />} />
         <Route path="/signup" element={<Signup setEmail = {setEmail} setPassword = {setPassword} />} />
         <Route path="/userprofile" element={<UserProfile user = {{email, password}}/>} />
-        <Route path="/navbar" element={<NavbarDesign />} >
-          <Route path="cryptos" element={<Cryptos cryptos={crypto} setCryptoData={setCryptoData} />} />
-          <Route path="portfolio" element={<Portfolio ownedCrypto={ownedCrypto} setCryptoData={setCryptoData} />} />
-          <Route path="cryptowallet" element={<CryptoWallet walletCrypto={walletCrypto} setCryptoData={setCryptoData} />} />
+        <Route path="/navbar" element={<NavbarDesign email = {email} />} >
+          <Route path="cryptos" element={<Cryptos cryptos={crypto} setCryptoData={setCryptoData} email = {email} />} />
+          <Route path="portfolio" element={<Portfolio ownedCrypto={ownedCrypto} setCryptoData={setCryptoData} email = {email} />} />
+          <Route path="cryptowallet" element={<CryptoWallet walletCrypto={walletCrypto} setCryptoData={setCryptoData} email = {email} />} />
           <Route path="poc" element={<ProofOfConcept />} />
           <Route path="buycrypto" element={<CryptoBuy cryptoData={cryptoData} />} />
           <Route path="sellcrypto" element={<CryptoSell cryptoData={cryptoData} />} />
